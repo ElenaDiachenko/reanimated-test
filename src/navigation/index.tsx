@@ -11,16 +11,12 @@ const StackNavigation = () => (
   <Stack.Navigator
     screenOptions={{
       // eslint-disable-next-line react/no-unstable-nested-components
-      header: ({route, options}) => {
+      header: ({route, options, navigation}) => {
+        console.log(route, 'ROUTE');
+        console.log(options, 'OPTIONS');
+        console.log(navigation, 'navigation');
         const title = getHeaderTitle(options, route.name);
         return <CustomHeader title={title} />;
-      },
-      headerStyle: {
-        backgroundColor: 'blue',
-      },
-      headerTintColor: 'white',
-      headerTitleStyle: {
-        fontWeight: 'bold',
       },
     }}>
     <Stack.Group>

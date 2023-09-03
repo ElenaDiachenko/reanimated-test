@@ -15,12 +15,13 @@ import {commonStyles, palette} from '../styles';
 type Props = {
   title: string;
 };
+const OFFSET = 40;
+
 const CustomHeader = ({title}: Props) => {
   const navigation = useNavigation();
   const isHome = title === 'Home';
 
   const translateX = useSharedValue(0);
-  const OFFSET = 40;
 
   const navigateBack = () => {
     navigation.canGoBack() && navigation.goBack();
