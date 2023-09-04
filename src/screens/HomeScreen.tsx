@@ -23,11 +23,7 @@ const HomeScreen = () => {
       </View>
     );
   }
-  return (
-    <View style={{paddingBottom: 16}}>
-      {flowers && <FlowersList flowers={flowers} />}
-    </View>
-  );
+  return <>{flowers && <FlowersList flowers={flowers} />}</>;
 };
 
 export default HomeScreen;
