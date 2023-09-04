@@ -11,10 +11,7 @@ const StackNavigation = () => (
   <Stack.Navigator
     screenOptions={{
       // eslint-disable-next-line react/no-unstable-nested-components
-      header: ({route, options, navigation}) => {
-        console.log(route, 'ROUTE');
-        console.log(options, 'OPTIONS');
-        console.log(navigation, 'navigation');
+      header: ({route, options}) => {
         const title = getHeaderTitle(options, route.name);
         return <CustomHeader title={title} />;
       },
