@@ -1,10 +1,11 @@
 import {RouteProp} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {FlowerType} from '../data';
 
 export type HomeStackNavigatorParamList = {
   Home: undefined;
   Details: {
-    id: number;
+    item: FlowerType;
   };
 };
 

@@ -18,6 +18,7 @@ const StackNavigation = () => (
         const title = getHeaderTitle(options, route.name);
         return <CustomHeader title={title} />;
       },
+      animation: 'slide_from_bottom',
     }}>
     <Stack.Group>
       <Stack.Screen name="Home" component={Screens.HomeScreen} />

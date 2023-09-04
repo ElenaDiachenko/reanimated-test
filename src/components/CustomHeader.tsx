@@ -15,7 +15,7 @@ import {commonStyles, palette} from '../styles';
 type Props = {
   title: string;
 };
-const OFFSET = 40;
+const OFFSET = 30;
 
 const CustomHeader = ({title}: Props) => {
   const navigation = useNavigation();

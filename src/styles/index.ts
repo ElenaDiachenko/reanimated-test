@@ -29,4 +29,9 @@ export const commonStyles = StyleSheet.create({
     fontWeight: '700',
     color: palette.whiteColor,
   },
+  subTitle: {
+    fontSize: 18,
+    fontWeight: '500',
+    color: palette.mainBgColor,
+  },
 });

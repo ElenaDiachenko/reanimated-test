@@ -1,18 +1,32 @@
-import {StyleSheet, Text, Pressable, Image} from 'react-native';
+import {StyleSheet, TouchableOpacity} from 'react-native';
 import React, {FC} from 'react';
+import Animated from 'react-native-reanimated';
 import {FlowerType} from '../data';
 import {commonStyles, palette} from '../styles';
+import {useNavigation} from '@react-navigation/native';
 
 type Props = {
   item: FlowerType;
 };
 
 const ListItem: FC<Props> = ({item}) => {
+  const {navigate} = useNavigation();
+
   return (
-    <Pressable style={styles.container}>
-      <Image source={{uri: item.imageUrl}} style={styles.image} />
-      <Text style={[commonStyles.text, styles.name]}>{item.name}</Text>
-    </Pressable>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={() => navigate('Details', {item})}>
+      <Animated.Image
+        sharedTransitionTag={`image-${item.id}`}
+        source={{uri: item.imageUrl}}
+        style={styles.image}
+      />
+      <Animated.Text
+        sharedTransitionTag={`title-${item.id}`}
+        style={[commonStyles.subTitle, styles.name]}>
+        {item.name}
+      </Animated.Text>
+    </TouchableOpacity>
   );
 };
 
