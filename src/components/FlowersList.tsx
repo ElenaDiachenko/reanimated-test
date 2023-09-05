@@ -31,16 +31,18 @@ const FlowersList: FC<Props> = ({flowers}) => {
 
   return (
     <View style={styles.container}>
-      {atTop ? null : (
-        <TouchableOpacity
-          style={styles.goToTopButton}
-          activeOpacity={1}
-          onPress={() => {
-            flatListRef.current?.scrollToOffset({animated: true, offset: 0});
-          }}>
-          <Text style={styles.goToTopText}>&#10224;</Text>
-        </TouchableOpacity>
-      )}
+      <View style={styles.buttonContainer}>
+        {atTop ? null : (
+          <TouchableOpacity
+            style={styles.goToTopButton}
+            activeOpacity={1}
+            onPress={() => {
+              flatListRef.current?.scrollToOffset({animated: true, offset: 0});
+            }}>
+            <Text style={styles.goToTopText}>&#10224;</Text>
+          </TouchableOpacity>
+        )}
+      </View>
       <FlatList
         ref={ref => (flatListRef.current = ref)}
         data={flowers}
@@ -64,8 +66,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  goToTopButton: {
+  buttonContainer: {
     position: 'absolute',
+    bottom: 30,
+    right: 10,
+    zIndex: 1,
+  },
+
+  goToTopButton: {
     paddingHorizontal: 10,
     paddingBottom: 5,
     backgroundColor: palette.footerTextColor,
@@ -73,9 +81,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    bottom: 30,
-    right: 10,
-    zIndex: 1,
   },
   goToTopText: {
     color: palette.whiteColor,
