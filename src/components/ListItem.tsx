@@ -32,7 +32,7 @@ const ListItem: FC<Props> = ({item}) => {
 
 export default ListItem;
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   container: {
     flex: 1,
     aspectRatio: 1,

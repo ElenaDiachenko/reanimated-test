@@ -1,9 +1,8 @@
-import {ActivityIndicator, View} from 'react-native';
+import {FlatList} from 'react-native';
 import React, {useEffect, useState} from 'react';
 
-import {commonStyles, palette} from '../styles';
 import {FlowerType, flowers as flowersData} from '../data';
-import {FlowersList} from '../components';
+import {FlowersList, SkeletonItem} from '../components';
 
 const HomeScreen = () => {
   const [flowers, setFlowers] = useState<FlowerType[] | []>([]);
@@ -18,9 +17,12 @@ const HomeScreen = () => {
 
   if (isLoading) {
     return (
-      <View style={commonStyles.centeredContainer}>
-        <ActivityIndicator color={palette.accentColor} size={'large'} />
-      </View>
+      <FlatList
+        data={Array(10)}
+        renderItem={() => <SkeletonItem />}
+        numColumns={2}
+        contentContainerStyle={{marginVertical: 10}}
+      />
     );
   }
   return <>{flowers && <FlowersList flowers={flowers} />}</>;
