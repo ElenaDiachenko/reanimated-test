@@ -18,7 +18,6 @@ const FlowersList: FC<Props> = ({flowers}) => {
 
   useEffect(() => {
     if (scroll > 10) {
-      // console.log('scrolling');
       navigation.setOptions({
         headerShown: false,
       });
